@@ -8,7 +8,8 @@ module.exports =  override(
     localIdentName: "[local]--[hash:base64:5]" // if you use CSS Modules, and custom `localIdentName`, default is '[local]--[hash:base64:5]'.
   }),
   addWebpackAlias({
-        ['components']: path.resolve(__dirname, 'src/components/'),
-        ['util']: path.resolve(__dirname, 'src/util/')
+        'components': path.resolve(__dirname, 'src/components/'),
+        'util': path.resolve(__dirname, 'src/util/'),
+        '@/*':path.resolve(__dirname,'src/*')
   }),
 );

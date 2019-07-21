@@ -1,0 +1,156 @@
+@import "../node_modules/bootstrap/scss/bootstrap";
+$font-size-base: 14px;
+$font-size-lg: $font-size-base + 2px;
+$font-size-sm: 12px;
+$base-color:#727d80;
+body {
+
+  font: normal 100% Helvetica, Arial, sans-serif;
+}
+
+
+@mixin func-text-shadow {
+  text-shadow: 4px 7px 6px rgba(10, 11, 10, 0.18);
+}
+@mixin font-size($multiple:1) {
+  @include media-breakpoint-up(xs) { 
+    font-size: ($font-size-sm - 2px) * $multiple;
+   }
+  @include media-breakpoint-up(sm) { 
+    font-size: $font-size-sm * $multiple;
+   }
+  @include media-breakpoint-up(md) { 
+    font-size: $font-size-base * $multiple;
+   }
+  @include media-breakpoint-up(lg) { 
+    font-size: $font-size-lg * $multiple;
+   }
+}
+.App {
+  display: flex;
+  flex-flow: column;
+  min-height: 100vh;
+  .App-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2%;
+    background: $base-color;
+    .logs{
+      width: 7%;
+      height: 10%;
+    }
+    .j-q {
+      font-family: ArialNarrow;
+      font-weight: normal;
+      font-stretch: normal;
+      color: #ffffff;
+      @include font-size(1.2);
+      @include func-text-shadow;
+    }
+    .left {
+      &>nav {
+        display: inline-block;
+        margin-right: 20px;
+        line-height: 20px;
+        font-family: STYuanti-SC-Regular;
+        font-weight: normal;
+        font-stretch: normal;
+        color: #ffffff;
+        @include func-text-shadow;
+        @include font-size(1.2); 
+      }
+    }
+  }
+  .main {
+    flex: 1;
+  
+    .content {
+      background: url("/img/bg.jpg") no-repeat;
+      z-index: -1;
+      background-size: 100%;
+      min-height: calc(100vw - 36vw);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      transition: margin 1s;
+      text-align: center;
+    
+      &>p {
+        transition: all 1s;
+        font-family: PingFangSC-Regular;
+        @include media-breakpoint-up(xs) { 
+          font-size: $font-size-sm - 2px;
+         }
+        @include media-breakpoint-up(sm) { 
+          font-size: $font-size-sm * 2;
+         }
+        @include media-breakpoint-up(md) { 
+          font-size: $font-size-base * 2;
+         }
+        @include media-breakpoint-up(lg) { 
+          font-size: $font-size-lg * 3;
+         }
+     
+        color: #ffffff;
+        @include func-text-shadow;
+      }
+    }
+
+  }
+  .feature{
+    background: url(/img/chartlet.png) space;
+
+    
+    @include media-breakpoint-up(xs) { 
+      background-size: $font-size-sm * 3;
+     }
+    @include media-breakpoint-up(sm) { 
+      background-size: $font-size-sm * 2;
+     }
+    @include media-breakpoint-up(md) { 
+      background-size: $font-size-base * 5;
+     }
+    @include media-breakpoint-up(lg) { 
+      background-size: $font-size-lg * 8;
+     }
+    box-shadow: 3px 2px 7px #0000006b;
+    .card{
+      @include media-breakpoint-down(sm){
+        min-width: 80vw;
+      }
+      @include media-breakpoint-down(md){
+        min-width: 80vw;
+      }
+      @include media-breakpoint-up(lg){
+        min-width: 30vw;
+      }
+      height: 240px;
+      .card-body{
+        margin: 25% 0px;
+      }
+    }
+    .row{
+      .col{
+        margin: 20px 0;
+      }
+    }
+  }
+  .footer{
+    height: 7em;
+    background: $base-color;
+    color: white;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    @include font-size(0.7);
+    div{
+      margin-top: 1em;
+      p{
+        font-weight: 400;
+        margin: 0.2em;
+      }
+    }
+  }
+}
